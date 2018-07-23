@@ -1,19 +1,14 @@
-# XBTIT Blu-Edition by BluCrew v2.0.8  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://gitter.im/bug-me-not/XBTIT-Blu-Edition-by-BluCrew)
+# [Unoffical] XBTIT Blu-Edition by BluCrew v2.0.9 unoffical [Please notice only small changes are being made mostly security Stuff]  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
 > A modern front and backend bittorrent tracker!
 
-<br><b>This codebase is no longer being maintained</b><br>
-
-
-Gitter Page: https://gitter.im/bug-me-not/XBTIT-Blu-Edition-by-BluCrew
-<i>Come chat with us!</i>
-
+<br><b>This codebase is being maintained By Leon-koder</b><br>
 <br>
 <br>
 
 <b>:REQUIREMENTS:</b>
 - Web server with NGINX (Apache can be used but not recommended)<br>
 - A valid domain<br>
-- PHP 7.X+ Recommended (PHP 5.4+ minimum)<br>
+- PHP 7.X+ Recommended (PHP 7+ minimum)<br>
 - Dependencies for PHP, (Updated as issues spotted)
   -   php-gettext -> This is primarly for phpmyadmin, if your going to use it, there has been cases where it does not install when installing phpmyadmin.
   -   php-curl    -> This is specifically needed for the Various API's we have running.
@@ -76,6 +71,7 @@ Copyright © 2016-2017 XBTIT Blu Edition by BluCrew<br>
   v2.0.6      - Fixes the issue with Admin Seedbonus page
   v2.0.7      - Fixes issue where an empty Seedbox table fills up PHP logs
   v2.0.8      - Removes the PHPMailer code. The latest should be pulled from Github on intsall.
+  v2.0.9      - Add PHP 7.2 Work around.
 ```
 
 
