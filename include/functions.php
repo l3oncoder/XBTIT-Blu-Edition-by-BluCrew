@@ -282,7 +282,9 @@ if($php_version[0] <= 5 && $php_version[1] <= 2)
       function check_online($session_id, $location)
       {
          global $TABLE_PREFIX, $CURUSER, $btit_settings;
-
+         
+         session_write_close();
+         session_set_cookie_params($session_id, $location); 
          session_name("BluRG");
          session_start();
 
@@ -565,6 +567,9 @@ if($php_version[0] <= 5 && $php_version[1] <= 2)
          global $CURUSER, $TABLE_PREFIX, $err_msg_install, $btit_settings, $update_interval, $THIS_BASEPATH, $STYLEPATH, $STYLEURL, $STYLETYPE, $BASEURL, $USERLANG;
 
          unset($GLOBALS['CURUSER']);
+         
+         session_write_close();
+         session_set_cookie_params($authcode=false); 
          session_name("BluRG");
          session_start();
 $ip = getip(); //$_SERVER["REMOTE_ADDR"];
