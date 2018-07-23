@@ -1027,7 +1027,7 @@ function updatedata()
    if($ts + $update_interval > $now)
       return;
    quickQuery("UPDATE {$TABLE_PREFIX}tasks SET last_time=$now WHERE task='update' AND last_time = $ts");
-   if(!sql_affected_rows)
+   if(!mysqli_affected_rows)
       return;
    $res = get_result("SELECT announce_url FROM {$TABLE_PREFIX}files WHERE external='yes' ORDER BY lastupdate ASC LIMIT 1", true, $btit_settings['cache_duration']);
    if(!$res || count($res) == 0)
