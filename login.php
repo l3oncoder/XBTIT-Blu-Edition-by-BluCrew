@@ -114,9 +114,9 @@ if (!$CURUSER || $CURUSER["uid"]==1)
             }
         }
         else
-        {
-            $passtype=hash_generate($row, $pwd, $user);
-            if($row["password"]==$passtype[$row["pass_type"]]["hash"])
+        { 
+
+            if (password_verify($pwd, $row['password'])) 
             {
                 // We have a correct password entry
 
