@@ -8133,7 +8133,7 @@ CREATE TABLE `{$db_prefix}username` (
 CREATE TABLE `{$db_prefix}users` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(40) NOT NULL DEFAULT '',
-  `password` varchar(40) NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
   `salt` varchar(20) NOT NULL,
   `pass_type` enum('1','2','3','4','5','6','7') NOT NULL DEFAULT '1',
   `dupe_hash` varchar(20) NOT NULL,
