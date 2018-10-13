@@ -861,7 +861,7 @@ if($_POST["conferma"])
                 exit();
             }
         }
-        $multipass = hash_generate(array("salt" => ""), $_POST["pwd"], $_POST["user"]);
+        $multipass = password_hash($_POST["pwd"],  PASSWORD_BCRYPT);
         $i = $btit_settings["secsui_pass_type"];
         $pid = md5(uniqid(rand(), true));
         $key.="";
@@ -882,10 +882,9 @@ if($_POST["conferma"])
         {
            $idlangue=$btit_settings["default_language"];
        }
-       quickQuery("INSERT INTO {$TABLE_PREFIX}users (`username`, `password`, `salt`, `pass_type`, `dupe_hash`, `random`, `id_level`, `email`, `style`, `language`, `flag`, `joined`, `lastconnect`, `pid`, `time_offset`".
+       quickQuery("INSERT INTO {$TABLE_PREFIX}users (`username`, `password`, `pass_type`, `random`, `id_level`, `email`, `style`, `language`, `flag`, `joined`, `lastconnect`, `pid`, `time_offset`".
         (($btit_settings["fmhack_signup_bonus_upload"] == "enabled" && !$XBTT_USE)?", `uploaded`":"").(($btit_settings["fmhack_birthdays"] == "enabled")?", `dob`":"").(($btit_settings["fmhack_force_ssl"] ==
-            "enabled")?", `force_ssl`":"").$key.") VALUES ('".$utente."', '".sql_esc($multipass[$i]["rehash"])."', '".sql_esc($multipass[$i]["salt"])."', '".$i."', '".
-        sql_esc($multipass[$i]["dupehash"])."', ".$random.", ".$idlevel.", '".$email."', ".$idstyle.", ".$idlangue.", ".$idflag.", NOW(), NOW(),'".$pid."', '".$timezone."'".(($btit_settings["fmhack_signup_bonus_upload"] ==
+            "enabled")?", `force_ssl`":"").$key.") VALUES ('".$utente."', '$multipass',  '".$i."', ".$random.", ".$idlevel.", '".$email."', ".$idstyle.", ".$idlangue.", ".$idflag.", NOW(), NOW(),'".$pid."', '".$timezone."'".(($btit_settings["fmhack_signup_bonus_upload"] ==
             "enabled" && !$XBTT_USE)?", ".$uploaded:"").(($btit_settings["fmhack_birthdays"] == "enabled")?", '".$dob."'":"").(($btit_settings["fmhack_force_ssl"] == "enabled")?", '".$force."'":"").$value.")", true);
        $newuid = sql_insert_id();
        if($btit_settings["fmhack_shoutbox_member_and_torrent_announce"] == "enabled")
