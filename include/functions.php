@@ -3315,11 +3315,11 @@ function sqlerr($file = '', $line = '')
                   global $btit_settings;
                   $salt = pass_the_salt(20);
                   $passtype = array();
-                  // Type 1 - Used in btit / xbtit / Torrent Trader / phpMyBitTorrent
-                  $passtype[1]["hash"] = md5($pwd);
-                  $passtype[1]["rehash"] = md5($pwd);
+                 // Type 1 - bcrypt new
+                  $passtype[1]["hash"] = password_hash($pwd, PASSWORD_BCRYPT);
+                  $passtype[1]["rehash"] = "";
                   $passtype[1]["salt"] = "";
-                  $passtype[1]["dupehash"] = substr(sha1(md5($pwd)), 30, 10).substr(sha1(md5($pwd)), 0, 10);
+                  $passtype[1]["dupehash"] = "";
                   // Type 2 - Used in TBDev / U-232 / SZ Edition / Invision Power Board
                   $passtype[2]["hash"] = md5(md5($row["salt"]).md5($pwd));
                   $passtype[2]["rehash"] = md5(md5($salt).md5($pwd));
