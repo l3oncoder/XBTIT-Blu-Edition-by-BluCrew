@@ -1,6 +1,8 @@
 # [Unoffical] XBTIT Blu-Edition by BluCrew v2.0.9 unoffical [Please notice only small changes are being made mostly security Stuff]  [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
 > A modern front and backend bittorrent tracker!
 
+<b>[Notice:]External forum is no longer support into i can find a work around.</b>
+
 <br><b>This codebase is being maintained By Leon-koder</b><br>
 <br>
 <br>
